@@ -2,9 +2,9 @@ class NoiceSession < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :mic_data, :interface_data, :equipment_data
-  validates_length_of :mic_data, in: 10..1000
-  validates_length_of :interface_data, in: 10..1000
-  validates_length_of :equipment_data, in: 10..1000
+  validates_length_of :mic_data, in: 5..1000
+  validates_length_of :interface_data, in: 5..1000
+  validates_length_of :equipment_data, in: 5..1000
 
   enum status: [:waiting_diagnostics, :waiting_approval, :ongoing]
 
