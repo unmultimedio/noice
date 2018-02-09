@@ -4,28 +4,28 @@ section role="session"
       .col-sm-12.col-md-9
         h1.display-4 = "Session ID #{@session.id}"
         hr.my-4
-        p
-          = @session.mic_data
+        .field-data
+          h4 Microphone information:
+          h5.card-subtitle.mb-2.text-muted Which microphone are you using? State reference, model, and how long have you been using it.
+          p
+            = @session.mic_data
+        .field-data
+          h4 Interface information:
+          h5.card-subtitle.mb-2.text-muted What interface are you using? State reference, model, and how long have you been using it. If you're using a USB microphone, please write USB.
+          p
+            = @session.interface_data
+        .field-data
+          h4 Equipment information:
+          h5.card-subtitle.mb-2.text-muted Please list any extra equipment you're using to record (i.e. preamplifiers, channel strips, compressors, etc.). State reference, model, and how long have you been using it.
+          p
+            = @session.equipment_data
       .col-sm-12.col-md-3
         p.status
           span.badge.badge-info = @session.status_label
+        p.user
+          span = @session.user.email
         p.chats
           span.badge.badge-secondary> = @session.number_of_chats
           span> Chats
           - if @session.number_of_chats > 2
             span.badge.badge-pill.badge-dark 🤓 Noooice!
-p
-  strong Audio file url:
-  = @session.audio_file_url
-p
-  strong Mic data:
-  = @session.mic_data
-p
-  strong Interface data:
-  = @session.interface_data
-p
-  strong Equipment data:
-  = @session.equipment_data
-p
-  strong Number of chats:
-  = @session.number_of_chats

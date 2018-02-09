@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new(session_params)
     @session.open = true
-    @session.waiting_diagnostics!
+    @session.status = :waiting_diagnostics
     if @session.save
       redirect_to @session, notice: 'Session was successfully created.'
     else
