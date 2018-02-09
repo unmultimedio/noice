@@ -7,13 +7,12 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light
 
   .collapse.navbar-collapse#navbarSupportedContent
     ul.navbar-nav.mr-auto
-      / Sections
-      li.nav-item
-        a.nav-link href="#{questions_path}" Feedback
-      li.nav-item
-        a.nav-link href="#{tags_path}" Tags
-
       - if user_signed_in?
+        / Sections
+        li.nav-item
+          a.nav-link href="#{questions_path}" Feedback
+        li.nav-item
+          a.nav-link href="#{tags_path}" Tags
         / User options
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

@@ -1,23 +1,25 @@
-p
-  strong
-    | Title:
-  = @question.title
-p
-  strong
-    | Body:
-  = @question.body
-= link_to 'Edit', edit_question_path(@question)
-|  | 
-= link_to 'Back', questions_path
+section role="question"
+  .jumbotron
+    h1.display-4 = @question.title
+    hr.my-4
+    p
+      = @question.body
 
-hr
-p 
-  strong
-    span = "Answers (#{@answers.length})"
+    - if current_user.owns @question
+      p.lead
+        = link_to 'Edit', edit_question_path(@question), class: "btn btn-secondary"
 
-- @answers.each do |answer|
-  p
-    = answer.body
-  hr
+section role="answers"
+  h2
+    = "Answers (#{@answers.length})"
 
-= render 'answers/form', answer: @answer, question: @question
+  ul.list-group
+  - @answers.each do |answer|
+    li.list-group-item
+      = answer.body
+
+section role="new_answer"
+  .jumbotron
+    h2.display-4 Post your own answer
+    hr.my-4
+    = render 'answers/form', answer: @answer, question: @question

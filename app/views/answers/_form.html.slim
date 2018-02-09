@@ -1,9 +1,10 @@
 = form_with(model: answer) do |form|
   - if answer.errors.any?
     = render "form_errors", model: answer
-  .field
-    = form.label :body
-    = form.text_area :body, id: :answer_body
+
+  .field.form-group
+    = form.text_area :body, id: :answer_body, class: "form-control", rows: 3, aria: { describedby: "emailHelp" }, placeholder: "Your response"
+    small.form-text.text-muted#emailHelp Be sure to read the complete question, and the other answers before answering yourself
     = form.hidden_field :question_id, value: @question.id
   .actions
-    = form.submit
+    = form.submit "Submit", class: "btn btn-primary"
