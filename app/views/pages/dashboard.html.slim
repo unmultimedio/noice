@@ -6,13 +6,13 @@
 .row
   .col-sm-12.col-md-6
     .jumbotron
-      h3 Featured Feedback
+      h3 Featured questions for you
       = render "questions/questions_small", questions: @featured_feedback
   .col-sm-12.col-md-6
     .row
       .col-sm-12
         .jumbotron
-          h3 My Recent Activity
+          h3 Your Recent Activity
           - question = @recent_activity[:question]
           - noice_session = @recent_activity[:session]
           .row
@@ -40,7 +40,7 @@
 
       .col-sm-12
         .jumbotron
-          h3 My Upcoming Sessions
+          h3 Your Upcoming Sessions
           .row
             .col-sm-12
               ul.list-group
@@ -55,7 +55,7 @@
                           span> Chats
       .col-sm-12
         .jumbotron
-          h3 My Upcoming Events
+          h3 Your Upcoming Events
           h5
             | There are +100 events in the next month. To get free exclusive access to all of them,
             = link_to "please upgrade to a paid plan.", root_path
