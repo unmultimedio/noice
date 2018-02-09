@@ -1,6 +1,7 @@
 nav.navbar.navbar-expand-md.navbar-dark.bg-primary
   / Brand
-  = link_to dashboard_path, class: "navbar-brand btn btn-outline-light" do
+  - brand_path = user_signed_in? ? dashboard_path : root_path
+  = link_to brand_path, class: "navbar-brand btn btn-outline-light" do
     = image_tag 'logo-noice-wide.png', alt: 'NOICE', height: '25px'
 
   / Hamburguer to toggle menu

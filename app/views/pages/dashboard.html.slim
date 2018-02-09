@@ -1,12 +1,13 @@
 .row
   .col-sm-12
     h1 Dashboard
-    h2.mb-2.text-muted Level up yor voice acting!
+    h2.mb-2.text-muted Level up your voice acting!
 
 .row
   .col-sm-12.col-md-6
     .jumbotron
       h3 Featured questions for you
+      p Feedback questions is the place where members can ask and answer all sorts of questions and request feedback around any topic concerning voice overs. In our community all members can ask questions and every member can answer them.
       = render "questions/questions_small", questions: @featured_feedback
   .col-sm-12.col-md-6
     .row
@@ -41,6 +42,7 @@
       .col-sm-12
         .jumbotron
           h3 Your Upcoming Sessions
+          p In Noice Sessions, you as a member provide a set of recordings to be diagnosed and assessed by our experts aiming to get candid feedback and detailed solutions for your problems. Sessions are designed to be one-on-one conversations with a carefully chosen expert whose experience allows you to provide the most accurate feedback.
           .row
             .col-sm-12
               ul.list-group
