@@ -4,7 +4,8 @@
   .col-sm-12.col-md-3
     = link_to 'New Question', new_question_path, class: "btn btn-primary btn-block"
 
-= render 'questions', questions: @questions
+.row
+  = render 'questions', questions: @questions
 
   .col-lg-3
     .jumbotron
