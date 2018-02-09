@@ -4,9 +4,10 @@ section role="noice_session"
       .col-sm-12.col-md-9
         h1.display-4 = "Session ID #{@noice_session.id}"
         hr.my-4
-        .field-data
-          h4 Recording
-          #waveform
+        / Audio Player
+          .field-data
+            h4 Recording
+            #waveform
         .field-data
           h4 Microphone information:
           h5.card-subtitle.mb-2.text-muted Which microphone are you using? State reference, model, and how long have you been using it.

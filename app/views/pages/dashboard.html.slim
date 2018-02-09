@@ -1,5 +1,61 @@
-h1
-  | Noice
+.row
+  .col-sm-12
+    h1 Dashboard
+    h2.mb-2.text-muted Level up yor voice acting!
 
-p
-  | Level up your voice acting!
+.row
+  .col-sm-12.col-md-6
+    .jumbotron
+      h3 Featured Feedback
+      = render "questions/questions_small", questions: @featured_feedback
+  .col-sm-12.col-md-6
+    .row
+      .col-sm-12
+        .jumbotron
+          h3 My Recent Activity
+          - question = @recent_activity[:question]
+          - noice_session = @recent_activity[:session]
+          .row
+            .col-sm-12
+              ul.list-group
+                  li.list-group-item
+                    .row
+                      .col-sm-12
+                        h6 You asked the question:
+                        h4 = link_to question.title, question
+                        p.answers
+                          - answers_amount = question.answers.length
+                          span.badge.badge-secondary> = answers_amount
+                          span> Answers
+                          - if answers_amount > 1
+                            span.badge.badge-pill.badge-warning 🔥 Popular
+                  li.list-group-item
+                    .row
+                      .col-sm-12
+                        h6 You booked a session:
+                        h4 = link_to "Session ID #{noice_session.id}", noice_session
+                        p.chats
+                          span.badge.badge-secondary> = noice_session.number_of_chats
+                          span> Chats
+
+      .col-sm-12
+        .jumbotron
+          h3 My Upcoming Sessions
+          .row
+            .col-sm-12
+              ul.list-group
+                - @upcoming_sessions.each do |noice_session|
+                  li.list-group-item
+                    .row
+                      .col-sm-12
+                        h5 = "When? #{noice_session.updated_at + 1.week}"
+                        h4 = link_to "Session ID #{noice_session.id}", noice_session
+                        p.chats
+                          span.badge.badge-secondary> = noice_session.number_of_chats
+                          span> Chats
+      .col-sm-12
+        .jumbotron
+          h3 My Upcoming Events
+          h5
+            | There are +100 events in the next month. To get free exclusive access to all of them,
+            = link_to "please upgrade to a paid plan.", root_path
