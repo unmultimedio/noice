@@ -1,0 +1,8 @@
+#error_explanation
+  p.lead
+    = pluralize(model.errors.count, "error")
+    |  prohibited this from being saved:
+  ul.list-group
+    - model.errors.full_messages.each do |message|
+      li.list-group-item
+        = message
