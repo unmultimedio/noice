@@ -11,3 +11,15 @@ p
 = link_to 'Edit', edit_question_path(@question)
 |  | 
 = link_to 'Back', questions_path
+
+hr
+p 
+  strong
+    span = "Answers (#{@answers.length})"
+
+- @answers.each do |answer|
+  p
+    = answer.body
+  hr
+
+= render 'answers/form', answer: Answer.new, question: @question

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope 'feedback' do
     resources :questions
+    resources :answers, only: [:index, :create, :update]
   end
 
   scope 'admin' do
