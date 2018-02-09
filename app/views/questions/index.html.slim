@@ -10,23 +10,25 @@
       - @questions.each do |question|
         li.list-group-item
           .row
-            .col-sm-12.col-md-8.col-lg-9
+            .col-sm-12.col-md-8
               h3 = question.title
+              p = question.body_excerpt
               - question.tags.each do |tag|
                 span.badge.badge-info> = tag.name
-              p
-                = question.body_excerpt
               ul.nav
                 li.nav-item
                   = link_to "View", question, class: "nav-link"
                 - if current_user.owns question
                   li.nav-item
                     = link_to "Edit", edit_question_path(question), class: "nav-link"
-            .col-sm-12.col-md-4.col-lg-3
-              .answers
-                span.badge.badge-secondary> = question.answers.length
-                span Answers
-              .user
+            .col-sm-12.col-md-4
+              p.answers
+                - answers_amount = question.answers.length
+                span.badge.badge-secondary> = answers_amount
+                span> Answers
+                - if question.answers.length > 1
+                  span.badge.badge-pill.badge-warning 🔥 Popular
+              p.user
                 span = question.user.email
 
   .col-lg-3

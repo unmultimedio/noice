@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :tags
   end
 
-  root to: "pages#landing"
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
+
+  root to: redirect("http://unbouncepages.com/mynoice/")
 end

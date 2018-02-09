@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def landing
+  def dashboard
+    redirect_to root_path unless user_signed_in?
   end
 end

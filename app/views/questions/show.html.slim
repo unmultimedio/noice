@@ -1,13 +1,25 @@
 section role="question"
   .jumbotron
-    h1.display-4 = @question.title
-    hr.my-4
-    p
-      = @question.body
+    .row
+      .col-sm-12.col-md-9
+        h1.display-4 = @question.title
+        hr.my-4
+        p
+          = @question.body
+      .col-sm-12.col-md-3
+        p.answers
+          - answers_amount = @question.answers.length
+          span.badge.badge-secondary> = answers_amount
+          span> Answers
+          - if @question.answers.length > 1
+            span.badge.badge-pill.badge-warning 🔥 Popular
+          p.user
+            span = @question.user.email
+          - if current_user.owns @question
+            p.lead
+              = link_to 'Edit', edit_question_path(@question), class: "btn btn-secondary"
 
-    - if current_user.owns @question
-      p.lead
-        = link_to 'Edit', edit_question_path(@question), class: "btn btn-secondary"
+hr
 
 section role="answers"
   h2
@@ -16,7 +28,10 @@ section role="answers"
   ul.list-group
   - @answers.each do |answer|
     li.list-group-item
-      = answer.body
+      p = answer.body
+      p
+        span> - by
+        = answer.user.email
 
 section role="new_answer"
   .jumbotron
