@@ -39,6 +39,11 @@ gem 'devise'
 # Instead of ERB
 gem "slim-rails"
 
+# Material
+gem 'jquery-rails'
+gem 'bootstrap',     '~> 4.0.0.beta2.1'
+gem 'material-sass', '~> 4.0.0.beta2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

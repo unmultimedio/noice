@@ -6,24 +6,24 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
   body
     / Header
-    span>
-      = link_to "NOICE", root_path
-    span>
-      = link_to "Feedback", questions_path
+    section role="navigation"
+      = render 'header'
 
-    / Admin sections
-    span>
-      = link_to "Tags", tags_path
-    - if user_signed_in?
-      span> = current_user.email
-      span> = link_to "Sign out", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Log in", new_user_session_path
+    section role="body"
+      .container
 
-    p.notice
-      = notice
-    p.alert
-      = alert
-    = yield
+        / Alerts
+        .alerts
+          - if notice
+            .alert.alert-info role="alert"
+              = notice
+          -if alert
+            .alert.alert-warning role="alert"
+              = alert
+
+        / View content
+        = yield
