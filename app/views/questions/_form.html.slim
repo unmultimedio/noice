@@ -4,8 +4,8 @@
 
   .field.form-group
     = form.label :title
-    = form.text_field :title, id: :question_title, class: "form-control", aria: { describedby: "emailHelp" }, placeholder: "Title of your question"
-    small.form-text.text-muted#emailHelp Try to be as straight forward as possible
+    = form.text_field :title, id: :question_title, class: "form-control", aria: { describedby: "titleHelp" }, placeholder: "Title of your question"
+    small.form-text.text-muted#titleHelp Try to be as straight forward as possible
 
   .field.form-group
     = form.label :body

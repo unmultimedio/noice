@@ -40,8 +40,6 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1.json
   def update
     if @question.update(question_params)
-      puts question_params
-      @question.question_tags = question_params[:question_tags]
       redirect_to @question, notice: 'Question was successfully updated.'
     else
       render :edit

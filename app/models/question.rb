@@ -14,7 +14,7 @@ class Question < ApplicationRecord
 
     def question_tags=(tags_ids)
       tags_ids.each do |tag_id|
-        question_tags << QuestionTag.new(question_id: id, tag_id: tag_id.to_i)
+        question_tags.build(question_id: id, tag_id: tag_id.to_i)
       end
     end
 end
