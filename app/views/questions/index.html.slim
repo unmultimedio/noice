@@ -1,25 +1,40 @@
-h1
-  | Questions
-table
-  thead
-    tr
-      th
-        | Title
-      th
-        | Body
-      th[colspan="3"]
-  tbody
-    - @questions.each do |question|
-      tr
-        td
-          = question.title
-        td
-          = question.body
-        td
-          = link_to 'Show', question
-        td
-          = link_to 'Edit', edit_question_path(question)
-        td
-          = link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Question', new_question_path
+.row
+  .col-sm-12.col-md-9
+    h1 All Feedback Questions
+  .col-sm-12.col-md-3
+    = link_to 'New Question', new_question_path, class: "btn btn-primary btn-block"
+
+.row
+  .col-lg-9
+    ul.list-group
+      - @questions.each do |question|
+        li.list-group-item
+          .row
+            .col-sm-12.col-md-8.col-lg-9
+              h3 = question.title
+              - question.tags.each do |tag|
+                span.badge.badge-info> = tag.name
+              p
+                = question.body_excerpt
+              ul.nav
+                li.nav-item
+                  = link_to "View", question, class: "nav-link"
+                - if current_user.owns question
+                  li.nav-item
+                    = link_to "Edit", edit_question_path(question), class: "nav-link"
+            .col-sm-12.col-md-4.col-lg-3
+              .answers
+                span.badge.badge-secondary> = question.answers.length
+                span Answers
+              .user
+                span = question.user.email
+
+  .col-lg-3
+    .jumbotron
+      h2 Categories
+      - Tag.all.each do |tag|
+        hr.my-4
+        = link_to "#" do
+          h3 = tag.name
+
+
