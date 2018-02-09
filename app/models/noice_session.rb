@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class NoiceSession < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :mic_data, :interface_data, :equipment_data

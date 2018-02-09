@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers, only: [:index, :create, :update]
 
-  # Sessions
-  resources :sessions
+  # Noice Sessions
+  resources :noice_sessions
 
   scope 'admin' do
     resources :tags

@@ -1,0 +1,26 @@
+.row
+  .col-sm-12.col-md-9
+    h1 My Sessions
+  .col-sm-12.col-md-3
+    = link_to 'New Session', new_noice_session_path, class: "btn btn-primary btn-block"
+
+.row
+  .col-sm-12
+    ul.list-group
+      - @noice_sessions.each do |noice_session|
+        li.list-group-item
+          .row
+            .col-sm-12.col-md-8
+              h3 = "Session ID #{noice_session.id}"
+              i = "Modified #{noice_session.updated_at}"
+              ul.nav
+                li.nav-item
+                  = link_to "View", noice_session, class: "nav-link"
+            .col-sm-12.col-md-4
+              p.status
+                span.badge.badge-info = noice_session.status_label
+              p.chats
+                span.badge.badge-secondary> = noice_session.number_of_chats
+                span> Chats
+                - if noice_session.number_of_chats > 2
+                  span.badge.badge-pill.badge-dark 🤓 Noooice!

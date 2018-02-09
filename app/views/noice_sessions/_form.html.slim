@@ -1,6 +1,6 @@
-= form_for @session do |f|
-  - if @session.errors.any?
-    = render 'form_errors', model: @session
+= form_for @noice_session do |f|
+  - if @noice_session.errors.any?
+    = render 'form_errors', model: @noice_session
 
   .field.form-group
     = f.label :audio_file_url, "Sample audio file"
@@ -20,18 +20,18 @@
     small.form-text.text-muted#equipmentDataHelp Please list any extra equipment you're using to record (i.e. preamplifiers, channel strips, compressors, etc.). State reference, model, and how long have you been using it. 
 
   .actions
-    button.btn.btn-primary type="button" data-toggle="modal" data-target="#submitSessionModal" Submit
+    button.btn.btn-primary type="button" data-toggle="modal" data-target="#submitNoiceSessionModal" Submit
 
   / Model
-  .modal.fade#submitSessionModal tabindex="-1" role="dialog" aria-labelledby="submitSessionModalLabel" aria-hidden="true"
+  .modal.fade#submitNoiceSessionModal tabindex="-1" role="dialog" aria-labelledby="submitNoiceSessionModalLabel" aria-hidden="true"
     .modal-dialog role="document"
       .modal-content
         .modal-header
-          h5.modal-title#submitSessionModalLabel Session Request
+          h5.modal-title#submitNoiceSessionModalLabel NoiceSession Request
           button.close type="button" data-dismiss="modal" aria-label="Close"
             span aria-hidden="true" &times;
         .modal-body
-          p We're about to send your Session Request Form to our Diagnostics team. Do you confirm the information is correct?
+          p We're about to send your NoiceSession Request Form to our Diagnostics team. Do you confirm the information is correct?
         .modal-footer
           button.btn.btn-secondary type="button" data-dismiss="modal" No, come back
           = f.submit "Yes, I'm sure", class: "btn btn-primary"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209162026) do
+ActiveRecord::Schema.define(version: 20180209192325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 20180209162026) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "noice_sessions", force: :cascade do |t|
+    t.integer "status"
+    t.string "audio_file_url"
+    t.text "mic_data"
+    t.text "interface_data"
+    t.text "equipment_data"
+    t.integer "number_of_chats", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.boolean "open", default: true
+    t.index ["user_id"], name: "index_noice_sessions_on_user_id"
   end
 
   create_table "question_tags", force: :cascade do |t|
@@ -41,20 +55,6 @@ ActiveRecord::Schema.define(version: 20180209162026) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.integer "status"
-    t.string "audio_file_url"
-    t.text "mic_data"
-    t.text "interface_data"
-    t.text "equipment_data"
-    t.integer "number_of_chats", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.boolean "open", default: true
-    t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|

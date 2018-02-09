@@ -16,3 +16,11 @@
 //= require bootstrap
 //= require material
 //= require_tree .
+
+// var wavesurfer = WaveSurfer.create({
+//     container: '#waveform',
+//     waveColor: 'violet',
+//     progressColor: 'purple'
+// });
+
+// wavesurfer.load('https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_9FKCBMK_-_Sample_109426.mp3');

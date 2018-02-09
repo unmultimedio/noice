@@ -5,7 +5,7 @@ class Question < ApplicationRecord
     has_many :tags, through: :question_tags
 
     validates :user_id, presence: true
-    validates :title, presence: true, length: { in: 5..30 }
+    validates :title, presence: true, length: { in: 5..100 }
     validates :body, presence: true, length: { in: 10..1000 }
 
     def body_excerpt(chars = 50)
