@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  scope 'feedback' do
-    resources :questions
-    resources :answers, only: [:index, :create, :update]
-  end
+  # Feedback
+  resources :questions
+  resources :answers, only: [:index, :create, :update]
+
+  # Sessions
+  resources :sessions
 
   scope 'admin' do
     resources :tags

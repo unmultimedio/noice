@@ -1,0 +1,26 @@
+.row
+  .col-sm-12.col-md-9
+    h1 My Sessions
+  .col-sm-12.col-md-3
+    = link_to 'New Session', new_session_path, class: "btn btn-primary btn-block"
+
+.row
+  .col-sm-12
+    ul.list-group
+      - @sessions.each do |session|
+        li.list-group-item
+          .row
+            .col-sm-12.col-md-8
+              h3 = "Session ID #{session.id}"
+              i = "Modified #{session.updated_at}"
+              ul.nav
+                li.nav-item
+                  = link_to "View", session, class: "nav-link"
+            .col-sm-12.col-md-4
+              p.status
+                span.badge.badge-info = session.status_label
+              p.chats
+                span.badge.badge-secondary> = session.number_of_chats
+                span> Chats
+                - if session.number_of_chats > 2
+                  span.badge.badge-pill.badge-dark 🤓 Noooice!

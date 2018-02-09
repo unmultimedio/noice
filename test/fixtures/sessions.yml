@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 
+  audio_file_url: MyString
+  mic_data: MyText
+  interface_data: MyText
+  equipment_data: MyText
+  number_of_chats: 1
+
+two:
+  status: 
+  audio_file_url: MyString
+  mic_data: MyText
+  interface_data: MyText
+  equipment_data: MyText
+  number_of_chats: 1

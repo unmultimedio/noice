@@ -1,0 +1,39 @@
+= form_for @session do |f|
+  - if @session.errors.any?
+    = render 'form_errors', model: @session
+
+  .field.form-group
+    = f.label :audio_file_url, "Sample audio file"
+    = f.file_field :audio_file_url, class: "form-control", aria: { describedby: "audioFileUrlHelp" }
+    small.form-text.text-muted#audioFileUrlHelp Please upload a recent, raw recording made on the space you'd like us to assess.
+  .field.form-group
+    = f.label :mic_data, "Microphone information"
+    = f.text_area :mic_data, class: "form-control", aria: { describedby: "micDataHelp" }
+    small.form-text.text-muted#micDataHelp Which microphone are you using? State reference, model, and how long have you been using it.
+  .field.form-group
+    = f.label :interface_data, "Interface information"
+    = f.text_area :interface_data, class: "form-control", aria: { describedby: "interfaceDataHelp" }
+    small.form-text.text-muted#interfaceDataHelp What interface are you using? State reference, model, and how long have you been using it. If you're using a USB microphone, please write USB.
+  .field.form-group
+    = f.label :equipment_data, "Equipment information"
+    = f.text_area :equipment_data, class: "form-control", aria: { describedby: "equipmentDataHelp" }
+    small.form-text.text-muted#equipmentDataHelp Please list any extra equipment you're using to record (i.e. preamplifiers, channel strips, compressors, etc.). State reference, model, and how long have you been using it. 
+
+  .actions
+    button.btn.btn-primary type="button" data-toggle="modal" data-target="#submitSessionModal" Submit
+
+  / Model
+  .modal.fade#submitSessionModal tabindex="-1" role="dialog" aria-labelledby="submitSessionModalLabel" aria-hidden="true"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          h5.modal-title#submitSessionModalLabel Session Request
+          button.close type="button" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true" &times;
+        .modal-body
+          p We're about to send your Session Request Form to our Diagnostics team. Do you confirm the information is correct?
+        .modal-footer
+          button.btn.btn-secondary type="button" data-dismiss="modal" No, come back
+          = f.submit "Yes, I'm sure", class: "btn btn-primary"
+
+ 

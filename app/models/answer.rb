@@ -4,5 +4,5 @@ class Answer < ApplicationRecord
 
     validates :user_id, presence: true
     validates :question_id, presence: true
-    validates :body, presence: true, length: { minimum: 10, maximum: 1000 }
+    validates :body, presence: true, length: { in: 10..1000 }
 end

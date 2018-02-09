@@ -6,6 +6,9 @@ section role="question"
         hr.my-4
         p
           = @question.body
+        p.tags
+          - @question.tags.each do |tag|
+            span.badge.badge-info> = tag.name
       .col-sm-12.col-md-3
         p.answers
           - answers_amount = @question.answers.length
