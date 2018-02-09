@@ -13,4 +13,8 @@ class PagesController < ApplicationController
 
   def events
   end
+
+  def search
+    @query = params[:q]
+  end
 end

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   get 'content', to: 'pages#content', as: :content
   get 'events', to: 'pages#events', as: :events
+  get 'search', to: 'pages#search', as: :search
 
   root to: redirect("http://unbouncepages.com/mynoice/")
 end

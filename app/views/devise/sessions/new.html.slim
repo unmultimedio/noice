@@ -4,10 +4,10 @@ h2
 
   .field.form-group
     = f.label :email
-    = f.email_field :email, id: :user_email, class: "form-control", placeholder: "john.doe@torre.co", autofocus: true, autocomplete: "email"
+    = f.email_field :email, id: :user_email, class: "form-control", placeholder: "john.doe@torre.co", autofocus: true, autocomplete: "email", required: true
   .field.form-group
     = f.label :password
-    = f.password_field :password, id: :user_email, class: "form-control", autocomplete: "off", placeholder: "**********"
+    = f.password_field :password, id: :user_email, class: "form-control", autocomplete: "off", placeholder: "**********", required: true
   - if devise_mapping.rememberable?
     .field.form-group
       = f.check_box :remember_me
