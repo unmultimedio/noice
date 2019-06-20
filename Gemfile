@@ -41,7 +41,7 @@ gem "slim-rails"
 
 # Material
 gem 'jquery-rails'
-gem 'bootstrap',     '~> 4.0.0.beta2.1'
+gem 'bootstrap', '~> 4.3.1.0.0'
 gem 'material-sass', '~> 4.0.0.beta2'
 
 group :development, :test do
