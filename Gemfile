@@ -40,8 +40,8 @@ gem 'devise'
 gem "slim-rails"
 
 # Material
-gem 'jquery-rails'
-gem 'bootstrap',     '~> 4.0.0.beta2.1'
+gem 'jquery-rails', '>= 4.3.4'
+gem 'bootstrap', '~> 4.1.2.0.0'
 gem 'material-sass', '~> 4.0.0.beta2'
 
 group :development, :test do
