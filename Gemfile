@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # User authentication platform
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 
 # Instead of ERB
 gem "slim-rails"
